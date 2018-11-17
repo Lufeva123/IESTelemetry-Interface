@@ -1,0 +1,252 @@
+/*About Dialog Box Styles */
+
+.aboutDialog:header .header-panel .label {
+	
+	-fx-font-weigth: bold;
+}
+/*End Dialog Box Styles */
+
+/* Beginning General styles */
+
+.boxTitles {
+	
+	-fx-font-weight: bold;
+}
+/*End General styles */
+
+/*Beginning of Main Frame Styles */
+
+.bottomDataPageHBoxes {
+	
+	-fx-spacing: 10;
+	-fx-padding: 10 10 10 10;
+}
+
+#GMTHBoxDataPage {
+	
+	-fx-alignment: center;
+	
+}
+
+/*End of Main Frame Styles */
+
+/*Beginning of Data Page Styles */
+
+#dataPageVBox {
+	
+	-fx-padding: 5 5 5 5;
+}
+
+#topDataPageBorderPane {
+	
+	-fx-padding: 20 20 20 20;
+	-fx-hgap: 5;
+	
+}
+
+#transmitCodeHBox {
+	
+	-fx-padding: 20 20 20 20;
+	-fx-spacing: 10;
+}
+
+.dataPageButtons {
+	
+	-fx-pref-width: 75;
+	-fx-min-width: 50;
+}
+
+#transmitCodebox {
+	
+	-fx-pref-width: 100;
+}
+
+#transmitCodeLabel {
+	
+	-fx-pref-width: 140;
+	-fx-alignment: CENTER;
+	-fx-background-color: #00ff00;
+	-fx-font-weight: bold;
+}
+
+#singlePingVBox{
+	
+	-fx-alignment: CENTER;
+}
+
+#singlePingHBox {
+	
+	-fx-padding: 20 20 20 20;
+	-fx-spacing: 10;
+	-fx-alignment: CENTER;
+}
+
+#MSB_LSBMarkerfield {
+	
+	-fx-pref-width: 350;
+	-fx-pref-height: 50;
+	
+}
+
+#middleHBoxDataPage {
+	
+	-fx-padding: 20 20 20 20;
+	-fx-spacing: 20;
+}
+
+#rawDataVBox{
+	
+	-fx-spacing: 10;
+}
+
+#rawDataTextArea {
+	
+	-fx-pref-width: 550;
+	-fx-pref-height: 300;
+}
+
+#convertedDataVBox{
+	
+	-fx-spacing: 10;
+}
+
+#convertedDataTextArea {
+	
+	-fx-pref-width: 400;
+	-fx-pref-height: 300;
+}
+
+#notesVBox{
+	
+	-fx-padding: 20 20 20 20;
+	-fx-spacing: 10;
+}
+
+#notesTextArea {
+	
+	-fx-pref-width: 400;
+	-fx-pref-height: 100;
+}
+
+/*End of Data Page Styles */
+
+/*Beginning of Configuration Page Styles */
+
+#configurationPageBorderPane{
+	
+	-fx-padding: 5 5 5 5;
+	
+}
+
+#topConfigurationPageAnchorPane{
+	
+	-fx-padding: 20 20 20 20;
+	-fx-spacing: 5;
+}
+
+#saveFileLocationHBox{
+	
+	-fx-padding: 20 20 20 20;
+	-fx-spacing: 10;
+}
+
+#saveFileLocationTextField{
+	
+	-fx-pref-width: 500;
+}
+
+#deckUnitHBox{
+	
+	-fx-padding: 20 20 20 20;
+	-fx-spacing: 10;
+	-fx-pref-width: 250;
+}
+
+#centerConfigurationPageBorderPane {
+	
+	-fx-padding: 25 25 25 25;
+	-fx-spacing: 5;
+}
+
+.serialPortConfigurationComboBoxes{
+	
+	-fx-pref-width: 200;
+}
+
+.configurationPageVBoxes{
+	
+	-fx-spacing: 10;
+}
+
+.IESControllers{
+	
+	-fx-pref-width: 150;
+}
+
+
+#frequencies_periodHBox{
+	
+	-fx-spacing: 5;
+}
+
+.configurationPageHBoxes{
+	
+	-fx-padding: 0 0 0 20;
+	-fx-spacing: 10;
+}
+
+#centerConfigurationPageVBox{
+	
+	-fx-padding: 0 0 50 50;
+	-fx-spacing: 30;
+	-fx-alignment: TOP_CENTER;
+}
+.serialPortButtons{
+	
+	-fx-pref-width: 95;
+}
+
+.configureDeckUnitComboBoxes{
+	
+	-fx-pref-width: 80;
+}
+
+.configureDeckUnitButtons{
+	
+	-fx-pref-width: 210;
+}
+
+#configureDeckUnitBottomButtonsVBox{
+	
+	-fx-spacing: 5;
+	-fx-padding: 0 0 0 20;
+	
+}
+.configureDeckUnitBottomButtons{
+	
+	-fx-alignment: CENTER;
+	-fx-pref-width: 300;
+}
+
+.frequencies_periodVBoxes {
+	
+	-fx-spacing: 5;
+}
+
+.individualfrequencies_periodHBoxes{
+	
+	-fx-spacing: 5;
+	-fx-alignment: BASELINE_RIGHT;
+	
+}
+
+.frequencies_periodComboBoxes {
+	
+	-fx-pref-width: 81;
+}
+
+#changeFreqsbtn{
+	
+	-fx-pref-width: 280;
+}
+/*End of Configuration Page Styles */

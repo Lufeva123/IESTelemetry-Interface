@@ -1,0 +1,776 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.layout.BorderPane?>
+<?import javafx.scene.layout.HBox?>
+<?import javafx.scene.layout.VBox?>
+<?import javafx.scene.text.Text?>
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.control.ComboBox?>
+<?import java.lang.*?>
+<?import javafx.collections.FXCollections?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.control.Label?>
+
+<BorderPane fx:id="configurationPageBorderPane" xmlns:fx="http://javafx.com/fxml/1" fx:controller="Controller">
+	<top>
+		<AnchorPane  fx:id="topConfigurationPageAnchorPane">
+			<VBox fx:id="saveFileLocationVBox" AnchorPane.leftAnchor="5.0" AnchorPane.rightAnchor="300" AnchorPane.topAnchor="5.0">
+				<Text fx:id="saveFileLocationtxt" text="Save File Location" styleClass="boxTitles" />
+				<HBox fx:id="saveFileLocationHBox">
+					<Button fx:id="browsebtn" text="Browse" onAction="#browse"/>
+					<TextField fx:id="saveFileLocationTextField" HBox.hgrow="ALWAYS"/>
+				</HBox>
+			</VBox>
+			<VBox fx:id="deckUnitTypeVBox" AnchorPane.rightAnchor="5.0" AnchorPane.topAnchor="5.0">
+				<Text fx:id="deckUnitTypeVBox" text="Deck Unit Type" styleClass="boxTitles" />
+				<HBox fx:id="deckUnitHBox" >
+					<ComboBox fx:id="deckUnitbox" >
+						<items>
+       						<FXCollections fx:factory="observableArrayList">
+      							<String fx:value="UDB-9000" />
+      							<String fx:value="UDB-9425" />
+      							<String fx:value="UTS-9000" />
+      							<String fx:value="DS-7000" />
+      							<String fx:value="SIMDS-7000" />
+       						</FXCollections>
+     					</items>
+					</ComboBox>
+				</HBox>
+			</VBox>
+		</AnchorPane>
+	</top>
+	<center>
+		<BorderPane fx:id="centerConfigurationPageBorderPane" >
+			<left>
+				<VBox fx:id="serialPortConfigurationVBox" styleClass="configurationPageVBoxes" >
+					<Text fx:id="serialPortConfigurationtxt" text="Serial Port Configuration" styleClass="boxTitles" />
+					<HBox fx:id="portHBox" styleClass="configurationPageHBoxes">
+						<ComboBox fx:id="portbox" styleClass="serialPortConfigurationComboBoxes" HBox.hgrow="ALWAYS">
+							<items>
+       							<FXCollections fx:factory="observableArrayList">
+      								<String fx:value="/dev/ttyUSB0" />
+      								<String fx:value="/dev/ttyS4" />
+       							</FXCollections>
+     						</items>
+						</ComboBox>
+						<Label fx:id="portLabel" text="Port" />
+					</HBox>
+					<HBox fx:id="speedHBox" styleClass="configurationPageHBoxes">
+						<ComboBox fx:id="speedbox" styleClass="serialPortConfigurationComboBoxes">
+							<items>
+       							<FXCollections fx:factory="observableArrayList">
+      								<Integer fx:value="300" />
+      								<Integer fx:value="600" />
+      								<Integer fx:value="1200" />
+      								<Integer fx:value="2400" />
+      								<Integer fx:value="4800" />
+      								<Integer fx:value="9600" />
+      								<Integer fx:value="19200" />
+      								<Integer fx:value="38400" />
+      								<Integer fx:value="57600" />
+      								<Integer fx:value="115200" />
+       							</FXCollections>
+     						</items>
+						</ComboBox>
+						<Label fx:id="speedLabel" text="Speed" />
+					</HBox>
+					<HBox fx:id="parityHBox" styleClass="configurationPageHBoxes">
+						<ComboBox fx:id="paritytbox" styleClass="serialPortConfigurationComboBoxes">
+							<items>
+       							<FXCollections fx:factory="observableArrayList">
+      								<String fx:value="none" />
+      								<String fx:value="even" />
+      								<String fx:value="odd" />
+       							</FXCollections>
+     						</items>
+						</ComboBox>
+						<Label fx:id="parityLabel" text="Parity" />
+					</HBox>
+					<HBox fx:id="bitsHBox" styleClass="configurationPageHBoxes">
+						<ComboBox fx:id="bitsbox" styleClass="serialPortConfigurationComboBoxes">
+							<items>
+       							<FXCollections fx:factory="observableArrayList">
+      								<Integer fx:value="8" />
+      								<Integer fx:value="7" />
+      								<Integer fx:value="6" />
+      								<Integer fx:value="5" />
+       							</FXCollections>
+     						</items>
+						</ComboBox>
+						<Label fx:id="bitsLabel" text="Bits" />
+					</HBox>
+					<HBox fx:id="stopHBox" styleClass="configurationPageHBoxes">
+						<ComboBox fx:id="stopbox" styleClass="serialPortConfigurationComboBoxes">
+							<items>
+       							<FXCollections fx:factory="observableArrayList">
+      								<Integer fx:value="1" />
+      								<Integer fx:value="2" />
+       							</FXCollections>
+     						</items>
+						</ComboBox>
+						<Label fx:id="stopLabel" text="Stop" />
+					</HBox>
+					<HBox fx:id="flCtrlHBox" styleClass="configurationPageHBoxes">
+						<ComboBox fx:id="flCtrlbox" styleClass="serialPortConfigurationComboBoxes">
+							<items>
+       							<FXCollections fx:factory="observableArrayList">
+      								<String fx:value="none" />
+      								<String fx:value="RTS/CTS" />
+      								<String fx:value="Xon/Xoff" />
+       							</FXCollections>
+     						</items>
+						</ComboBox>
+						<Label fx:id="flCtrlLabel" text="Fl Ctrl" />
+					</HBox>
+					<HBox fx:id="serialPortConfigurationButtonsHBox" styleClass="configurationPageHBoxes">
+						<Button fx:id="connectbtn" text="Connect" styleClass="serialPortButtons" onAction="#connect"/>
+						<Button fx:id="disconnectbtn" text="Disconnect" styleClass="serialPortButtons" onAction="#disconnect"/>
+					</HBox>
+				</VBox>
+			</left>
+			<center>
+				<VBox fx:id="centerConfigurationPageVBox" >
+					<VBox fx:id="IESVBox" styleClass="configurationPageVBoxes" >
+						<Text fx:id="IEStxt" text="IES" styleClass="boxTitles" />
+						<HBox fx:id="typeHBox" styleClass="configurationPageHBoxes" >
+							<ComboBox fx:id="typebox" styleClass="IESControllers">
+								<items>
+       								<FXCollections fx:factory="observableArrayList">
+      									<String fx:value="PIES" />
+      									<String fx:value="C-PIES" />
+       								</FXCollections>
+     							</items>
+							</ComboBox>
+							<Label fx:id="typeLabel" text="Type" />
+						</HBox>
+						<HBox fx:id="modelHBox" styleClass="configurationPageHBoxes" >
+							<ComboBox fx:id="modelbox" styleClass="IESControllers" >
+								<items>
+       								<FXCollections fx:factory="observableArrayList">
+      									<String fx:value="6.1C" />
+      									<String fx:value="6.1E" />
+      									<String fx:value="6.2" />
+      									<String fx:value="6.2A" />
+      									<String fx:value="6.2B" />
+       								</FXCollections>
+     							</items>
+							</ComboBox>
+							<Label fx:id="modelLabel" text="Model" />
+						</HBox>
+						<HBox fx:id="firmwareHBox" styleClass="configurationPageHBoxes" >
+							<ComboBox fx:id="firmwarebox" styleClass="IESControllers">
+								<items>
+       								<FXCollections fx:factory="observableArrayList">
+      									<String fx:value="A" />
+      									<String fx:value="B" />
+      									<String fx:value="C" />
+       								</FXCollections>
+     							</items>
+							</ComboBox>
+							<Label fx:id="firmwareLabel" text="Firmware" />
+						</HBox>
+						<HBox fx:id="serialHBox" styleClass="configurationPageHBoxes" >
+							<TextField fx:id="serialNumberTextField" styleClass="IESControllers" />
+							<Label fx:id="serialNumberLabel" text="Serial #" />
+						</HBox>
+					</VBox>
+					<VBox fx:id="frequencies_periodVBox" styleClass="configurationPageVBoxes" >
+						<Text fx:id="frequencies_periodtxt" text="Measurement Freqs and Record Period" styleClass="boxTitles" />
+						<HBox fx:id="frequencies_periodHBox" >
+							<VBox fx:id="pressure_yearDayVBox" styleClass="frequencies_periodVBoxes">
+								<HBox fx:id="pressureHBox" styleClass="individualfrequencies_periodHBoxes" >
+									<Label fx:id="pressureLabel" text="Pressure" styleClass="frequencies_periodLabels"/>
+									<ComboBox fx:id="pressurebox" styleClass="frequencies_periodComboBoxes" >
+										<items>
+											<FXCollections fx:factory="observableArrayList" >
+												<Double fx:value="10.5" />
+												<Double fx:value="11.5" />
+												<Double fx:value="12.0" />
+												<Double fx:value="12.5" />
+												<Double fx:value="13.0" />
+											</FXCollections>
+										</items>
+									</ComboBox>
+								</HBox>
+								<HBox fx:id="tauHBox" styleClass="individualfrequencies_periodHBoxes" >
+									<Label fx:id="tauLabel" text="Tau" styleClass="frequencies_periodLabels"/>
+									<ComboBox fx:id="taubox" styleClass="frequencies_periodComboBoxes" >
+										<items>
+											<FXCollections fx:factory="observableArrayList" >
+												<Double fx:value="10.5" />
+												<Double fx:value="11.5" />
+												<Double fx:value="12.0" />
+												<Double fx:value="12.5" />
+												<Double fx:value="13.0" />
+											</FXCollections>
+										</items>
+									</ComboBox>
+								</HBox>
+								<HBox fx:id="yearDayHBox" styleClass="individualfrequencies_periodHBoxes" >
+									<Label fx:id="yearDayLabel" text="Year Day" styleClass="frequencies_periodLabels"/>
+									<ComboBox fx:id="yearDaybox" styleClass="frequencies_periodComboBoxes" >
+										<items>
+											<FXCollections fx:factory="observableArrayList" >
+												<Double fx:value="10.5" />
+												<Double fx:value="11.5" />
+												<Double fx:value="12.0" />
+												<Double fx:value="12.5" />
+												<Double fx:value="13.0" />
+											</FXCollections>
+										</items>
+									</ComboBox>
+								</HBox>
+							</VBox>
+							<VBox fx:id="speed_periodVBox" styleClass="frequencies_periodVBoxes">
+								<HBox fx:id="speedHBox" styleClass="individualfrequencies_periodHBoxes" >
+									<Label fx:id="speedLabel" text="Speed" styleClass="frequencies_periodLabels"/>
+									<ComboBox fx:id="speedMeasurementbox" styleClass="frequencies_periodComboBoxes" >
+										<items>
+											<FXCollections fx:factory="observableArrayList" >
+												<Double fx:value="10.5" />
+												<Double fx:value="11.5" />
+												<Double fx:value="12.0" />
+												<Double fx:value="12.5" />
+												<Double fx:value="13.0" />
+											</FXCollections>
+										</items>
+									</ComboBox>
+								</HBox>
+								<HBox fx:id="headHBox" styleClass="individualfrequencies_periodHBoxes" >
+									<Label fx:id="headLabel" text="Head" styleClass="frequencies_periodLabels"/>
+									<ComboBox fx:id="headbox" styleClass="frequencies_periodComboBoxes" >
+										<items>
+											<FXCollections fx:factory="observableArrayList" >
+												<Double fx:value="10.5" />
+												<Double fx:value="11.5" />
+												<Double fx:value="12.0" />
+												<Double fx:value="12.5" />
+												<Double fx:value="13.0" />
+											</FXCollections>
+										</items>
+									</ComboBox>
+								</HBox>
+								<HBox fx:id="periodHBox" styleClass="individualfrequencies_periodHBoxes" >
+									<Label fx:id="periodLabel" text="Period" styleClass="frequencies_periodLabels"/>
+									<ComboBox fx:id="periodbox" styleClass="frequencies_periodComboBoxes" >
+										<items>
+											<FXCollections fx:factory="observableArrayList" >
+												<Double fx:value="10.5" />
+												<Double fx:value="11.5" />
+												<Double fx:value="12.0" />
+												<Double fx:value="12.5" />
+												<Double fx:value="13.0" />
+											</FXCollections>
+										</items>
+									</ComboBox>
+								</HBox>
+							</VBox>
+						</HBox>
+						<HBox fx:id="changeFreqsbtnHBox" >
+							<Button fx:id="changeFreqsbtn" text="Change Freqs" onAction="#changeFreqs"/>
+						</HBox>
+					</VBox>
+				</VBox> 
+			</center>
+			<right>
+				<VBox fx:id="configureDeckUnitVBox" styleClass="configurationPageVBoxes" >
+					<Text fx:id="configureDeckUnittxt" text="Configure Deck Unit" styleClass="boxTitles" />
+					<HBox fx:id="gainHBox" styleClass="configurationPageHBoxes" >
+						<ComboBox fx:id="gainbox" styleClass="configureDeckUnitComboBoxes">
+							<items>
+       							<FXCollections fx:factory="observableArrayList">
+      								<Integer fx:value="3" />
+      								<!-- Add other values -->
+       							</FXCollections>
+     						</items>
+						</ComboBox>
+						<Label fx:id="gainLabel" text="Gain" />
+					</HBox>
+					<HBox fx:id="rxPulseWidthHBox" styleClass="configurationPageHBoxes" >
+						<ComboBox fx:id="rxPulseWidthbox" styleClass="configureDeckUnitComboBoxes">
+							<items>
+       							<FXCollections fx:factory="observableArrayList">
+      								<Integer fx:value="7" />
+      								<Integer fx:value="8" />
+      								<Integer fx:value="9" />
+      								<Integer fx:value="10" />
+      								<Integer fx:value="11" />
+      								<Integer fx:value="12" />
+      								<Integer fx:value="13" />
+      								<Integer fx:value="14" />
+      								<Integer fx:value="15" />
+       							</FXCollections>
+     						</items>
+						</ComboBox>
+						<Label fx:id="rxPulseWidthLabel" text="Rx Pulse Width" />
+					</HBox>
+					<HBox fx:id="rxThresholdHBox" styleClass="configurationPageHBoxes" >
+						<ComboBox fx:id="rxThresholdbox" styleClass="configureDeckUnitComboBoxes">
+							<items>
+       							<FXCollections fx:factory="observableArrayList">
+      								<Integer fx:value="10" />
+      								<Integer fx:value="11" />
+      								<Integer fx:value="12" />
+      								<Integer fx:value="13" />
+      								<Integer fx:value="14" />
+      								<Integer fx:value="15" />
+      								<Integer fx:value="16" />
+      								<Integer fx:value="17" />
+      								<Integer fx:value="18" />
+      								<Integer fx:value="19" />
+      								<Integer fx:value="20" />
+      								<Integer fx:value="21" />
+      								<Integer fx:value="22" />
+      								<Integer fx:value="23" />
+      								<Integer fx:value="24" />
+      								<Integer fx:value="25" />
+      								<Integer fx:value="26" />
+      								<Integer fx:value="27" />
+      								<Integer fx:value="28" />
+      								<Integer fx:value="29" />
+      								<Integer fx:value="30" />
+      								<Integer fx:value="31" />
+      								<Integer fx:value="32" />
+      								<Integer fx:value="33" />
+      								<Integer fx:value="34" />
+      								<Integer fx:value="35" />
+      								<Integer fx:value="36" />
+      								<Integer fx:value="37" />
+      								<Integer fx:value="38" />
+      								<Integer fx:value="39" />
+      								<Integer fx:value="40" />
+      								<Integer fx:value="41" />
+      								<Integer fx:value="42" />
+      								<Integer fx:value="43" />
+      								<Integer fx:value="44" />
+      								<Integer fx:value="45" />
+      								<Integer fx:value="46" />
+      								<Integer fx:value="47" />
+      								<Integer fx:value="48" />
+      								<Integer fx:value="49" />
+      								<Integer fx:value="50" />
+      								<Integer fx:value="51" />
+      								<Integer fx:value="52" />
+      								<Integer fx:value="53" />
+      								<Integer fx:value="54" />
+      								<Integer fx:value="55" />
+      								<Integer fx:value="56" />
+      								<Integer fx:value="57" />
+      								<Integer fx:value="58" />
+      								<Integer fx:value="59" />
+      								<Integer fx:value="60" />
+      								<Integer fx:value="61" />
+      								<Integer fx:value="62" />
+      								<Integer fx:value="63" />
+      								<Integer fx:value="64" />
+      								<Integer fx:value="65" />
+      								<Integer fx:value="66" />
+      								<Integer fx:value="67" />
+      								<Integer fx:value="68" />
+      								<Integer fx:value="69" />
+      								<Integer fx:value="70" />
+      								<Integer fx:value="71" />
+      								<Integer fx:value="72" />
+      								<Integer fx:value="73" />
+      								<Integer fx:value="74" />
+      								<Integer fx:value="75" />
+      								<Integer fx:value="76" />
+      								<Integer fx:value="77" />
+      								<Integer fx:value="78" />
+      								<Integer fx:value="79" />
+      								<Integer fx:value="80" />
+      								<Integer fx:value="81" />
+      								<Integer fx:value="82" />
+      								<Integer fx:value="83" />
+      								<Integer fx:value="84" />
+      								<Integer fx:value="85" />
+      								<Integer fx:value="86" />
+      								<Integer fx:value="87" />
+      								<Integer fx:value="88" />
+      								<Integer fx:value="89" />
+      								<Integer fx:value="90" />
+      								<Integer fx:value="91" />
+      								<Integer fx:value="92" />
+      								<Integer fx:value="93" />
+      								<Integer fx:value="94" />
+      								<Integer fx:value="95" />
+      								<Integer fx:value="96" />
+      								<Integer fx:value="97" />
+      								<Integer fx:value="98" />
+      								<Integer fx:value="99" />
+      								<Integer fx:value="100" />
+      								<Integer fx:value="101" />
+      								<Integer fx:value="102" />
+      								<Integer fx:value="103" />
+      								<Integer fx:value="104" />
+      								<Integer fx:value="105" />
+      								<Integer fx:value="106" />
+      								<Integer fx:value="107" />
+      								<Integer fx:value="108" />
+      								<Integer fx:value="109" />
+      								<Integer fx:value="110" />
+      								<Integer fx:value="111" />
+      								<Integer fx:value="112" />
+      								<Integer fx:value="113" />
+      								<Integer fx:value="114" />
+      								<Integer fx:value="115" />
+      								<Integer fx:value="116" />
+      								<Integer fx:value="117" />
+      								<Integer fx:value="118" />
+      								<Integer fx:value="119" />
+      								<Integer fx:value="120" />
+      								<Integer fx:value="121" />
+      								<Integer fx:value="122" />
+      								<Integer fx:value="123" />
+      								<Integer fx:value="124" />
+      								<Integer fx:value="125" />
+      								<Integer fx:value="126" />
+      								<Integer fx:value="127" />
+      								<Integer fx:value="128" />
+      								<Integer fx:value="129" />
+      								<Integer fx:value="130" />
+      								<Integer fx:value="131" />
+      								<Integer fx:value="132" />
+      								<Integer fx:value="133" />
+      								<Integer fx:value="134" />
+      								<Integer fx:value="135" />
+      								<Integer fx:value="136" />
+      								<Integer fx:value="137" />
+      								<Integer fx:value="138" />
+      								<Integer fx:value="139" />
+      								<Integer fx:value="140" />
+      								<Integer fx:value="141" />
+      								<Integer fx:value="142" />
+      								<Integer fx:value="143" />
+      								<Integer fx:value="144" />
+      								<Integer fx:value="145" />
+      								<Integer fx:value="146" />
+      								<Integer fx:value="147" />
+      								<Integer fx:value="148" />
+      								<Integer fx:value="149" />
+      								<Integer fx:value="150" />
+      								<Integer fx:value="151" />
+      								<Integer fx:value="152" />
+      								<Integer fx:value="153" />
+      								<Integer fx:value="154" />
+      								<Integer fx:value="155" />
+      								<Integer fx:value="156" />
+      								<Integer fx:value="157" />
+      								<Integer fx:value="158" />
+      								<Integer fx:value="159" />
+      								<Integer fx:value="160" />
+      								<Integer fx:value="161" />
+      								<Integer fx:value="162" />
+      								<Integer fx:value="163" />
+      								<Integer fx:value="164" />
+      								<Integer fx:value="165" />
+      								<Integer fx:value="166" />
+      								<Integer fx:value="167" />
+      								<Integer fx:value="168" />
+      								<Integer fx:value="169" />
+      								<Integer fx:value="170" />
+      								<Integer fx:value="171" />
+      								<Integer fx:value="172" />
+      								<Integer fx:value="173" />
+      								<Integer fx:value="174" />
+      								<Integer fx:value="175" />
+      								<Integer fx:value="176" />
+      								<Integer fx:value="177" />
+      								<Integer fx:value="178" />
+      								<Integer fx:value="179" />
+      								<Integer fx:value="180" />
+      								<Integer fx:value="181" />
+      								<Integer fx:value="182" />
+      								<Integer fx:value="183" />
+      								<Integer fx:value="184" />
+      								<Integer fx:value="185" />
+      								<Integer fx:value="186" />
+      								<Integer fx:value="187" />
+      								<Integer fx:value="188" />
+      								<Integer fx:value="189" />
+      								<Integer fx:value="190" />
+      								<Integer fx:value="191" />
+      								<Integer fx:value="192" />
+      								<Integer fx:value="193" />
+      								<Integer fx:value="194" />
+      								<Integer fx:value="195" />
+      								<Integer fx:value="196" />
+      								<Integer fx:value="197" />
+      								<Integer fx:value="198" />
+      								<Integer fx:value="199" />
+      								<Integer fx:value="200" />
+      								<Integer fx:value="201" />
+      								<Integer fx:value="202" />
+      								<Integer fx:value="203" />
+      								<Integer fx:value="204" />
+      								<Integer fx:value="205" />
+      								<Integer fx:value="206" />
+      								<Integer fx:value="207" />
+      								<Integer fx:value="208" />
+      								<Integer fx:value="209" />
+      								<Integer fx:value="210" />
+      								<Integer fx:value="211" />
+      								<Integer fx:value="212" />
+      								<Integer fx:value="213" />
+      								<Integer fx:value="214" />
+      								<Integer fx:value="215" />
+      								<Integer fx:value="216" />
+      								<Integer fx:value="217" />
+      								<Integer fx:value="218" />
+      								<Integer fx:value="219" />
+      								<Integer fx:value="220" />
+      								<Integer fx:value="221" />
+      								<Integer fx:value="222" />
+      								<Integer fx:value="223" />
+      								<Integer fx:value="224" />
+      								<Integer fx:value="225" />
+      								<Integer fx:value="226" />
+      								<Integer fx:value="227" />
+      								<Integer fx:value="228" />
+      								<Integer fx:value="229" />
+      								<Integer fx:value="230" />
+      								<Integer fx:value="231" />
+      								<Integer fx:value="232" />
+      								<Integer fx:value="233" />
+      								<Integer fx:value="234" />
+      								<Integer fx:value="235" />
+      								<Integer fx:value="236" />
+      								<Integer fx:value="237" />
+      								<Integer fx:value="238" />
+      								<Integer fx:value="239" />
+      								<Integer fx:value="240" />
+      								<Integer fx:value="241" />
+      								<Integer fx:value="242" />
+      								<Integer fx:value="243" />
+      								<Integer fx:value="244" />
+      								<Integer fx:value="245" />
+      								<Integer fx:value="246" />
+      								<Integer fx:value="247" />
+      								<Integer fx:value="248" />
+      								<Integer fx:value="249" />
+      								<Integer fx:value="250" />
+      								<Integer fx:value="251" />
+      								<Integer fx:value="252" />
+      								<Integer fx:value="253" />
+      								<Integer fx:value="254" />
+      								<Integer fx:value="255" />
+      								<Integer fx:value="256" />
+       							</FXCollections>
+     						</items>
+						</ComboBox>
+						<Button fx:id="setRxThresholdbtn" text="Set Rx Threshold" styleClass="configureDeckUnitButtons"/>
+					</HBox>
+					<HBox fx:id="tenKHzSensitivityHBox" styleClass="configurationPageHBoxes" >
+						<ComboBox fx:id="tenKHzSensitivitybox" styleClass="configureDeckUnitComboBoxes">
+							<items>
+       							<FXCollections fx:factory="observableArrayList">
+      								<Double fx:value="-1.0" />
+      								<Double fx:value="-0.9" />
+      								<Double fx:value="-0.7" />
+      								<Double fx:value="-0.6" />
+      								<Double fx:value="-0.5" />
+      								<Double fx:value="-0.4" />
+      								<Double fx:value="-0.3" />
+      								<Double fx:value="-0.2" />
+      								<Double fx:value="-0.1" />
+      								<Double fx:value="0.0" />
+      								<Double fx:value="0.1" />
+      								<Double fx:value="0.2" />
+      								<Double fx:value="0.3" />
+      								<Double fx:value="0.4" />
+      								<Double fx:value="0.5" />
+      								<Double fx:value="0.6" />
+      								<Double fx:value="0.7" />
+      								<Double fx:value="0.8" />
+      								<Double fx:value="0.9" />
+      								<Double fx:value="1.0" />
+       							</FXCollections>
+     						</items>
+						</ComboBox>
+						<Button fx:id="set10KHzSensitivitybtn" text="Set 10.0 KHz Sensitivity" styleClass="configureDeckUnitButtons"/>
+					</HBox>	
+					<HBox fx:id="ten_fiveKHzSensitivityHBox" styleClass="configurationPageHBoxes" >
+						<ComboBox fx:id="ten_fiveKHzSensitivitybox" styleClass="configureDeckUnitComboBoxes">
+							<items>
+       							<FXCollections fx:factory="observableArrayList">
+      								<Double fx:value="-1.0" />
+      								<Double fx:value="-0.9" />
+      								<Double fx:value="-0.7" />
+      								<Double fx:value="-0.6" />
+      								<Double fx:value="-0.5" />
+      								<Double fx:value="-0.4" />
+      								<Double fx:value="-0.3" />
+      								<Double fx:value="-0.2" />
+      								<Double fx:value="-0.1" />
+      								<Double fx:value="0.0" />
+      								<Double fx:value="0.1" />
+      								<Double fx:value="0.2" />
+      								<Double fx:value="0.3" />
+      								<Double fx:value="0.4" />
+      								<Double fx:value="0.5" />
+      								<Double fx:value="0.6" />
+      								<Double fx:value="0.7" />
+      								<Double fx:value="0.8" />
+      								<Double fx:value="0.9" />
+      								<Double fx:value="1.0" />
+       							</FXCollections>
+     						</items>
+						</ComboBox>
+						<Button fx:id="set10_5KHzSensitivitybtn" text="Set 10.5 KHz Sensitivity" styleClass="configureDeckUnitButtons"/>
+					</HBox>	
+					<HBox fx:id="elevenKHzSensitivityHBox" styleClass="configurationPageHBoxes" >
+						<ComboBox fx:id="elevenKHzSensitivitybox" styleClass="configureDeckUnitComboBoxes">
+							<items>
+       							<FXCollections fx:factory="observableArrayList">
+      								<Double fx:value="-1.0" />
+      								<Double fx:value="-0.9" />
+      								<Double fx:value="-0.7" />
+      								<Double fx:value="-0.6" />
+      								<Double fx:value="-0.5" />
+      								<Double fx:value="-0.4" />
+      								<Double fx:value="-0.3" />
+      								<Double fx:value="-0.2" />
+      								<Double fx:value="-0.1" />
+      								<Double fx:value="0.0" />
+      								<Double fx:value="0.1" />
+      								<Double fx:value="0.2" />
+      								<Double fx:value="0.3" />
+      								<Double fx:value="0.4" />
+      								<Double fx:value="0.5" />
+      								<Double fx:value="0.6" />
+      								<Double fx:value="0.7" />
+      								<Double fx:value="0.8" />
+      								<Double fx:value="0.9" />
+      								<Double fx:value="1.0" />
+       							</FXCollections>
+     						</items>
+						</ComboBox>
+						<Button fx:id="set11KHzSensitivitybtn" text="Set 11.0 KHz Sensitivity" styleClass="configureDeckUnitButtons"/>
+					</HBox>
+					<HBox fx:id="eleven_fiveKHzSensitivityHBox" styleClass="configurationPageHBoxes" >
+						<ComboBox fx:id="eleven_fiveKHzSensitivitybox" styleClass="configureDeckUnitComboBoxes">
+							<items>
+       							<FXCollections fx:factory="observableArrayList">
+      								<Double fx:value="-1.0" />
+      								<Double fx:value="-0.9" />
+      								<Double fx:value="-0.7" />
+      								<Double fx:value="-0.6" />
+      								<Double fx:value="-0.5" />
+      								<Double fx:value="-0.4" />
+      								<Double fx:value="-0.3" />
+      								<Double fx:value="-0.2" />
+      								<Double fx:value="-0.1" />
+      								<Double fx:value="0.0" />
+      								<Double fx:value="0.1" />
+      								<Double fx:value="0.2" />
+      								<Double fx:value="0.3" />
+      								<Double fx:value="0.4" />
+      								<Double fx:value="0.5" />
+      								<Double fx:value="0.6" />
+      								<Double fx:value="0.7" />
+      								<Double fx:value="0.8" />
+      								<Double fx:value="0.9" />
+      								<Double fx:value="1.0" />
+       							</FXCollections>
+     						</items>
+						</ComboBox>
+						<Button fx:id="set11_5KHzSensitivitybtn" text="Set 11.5 KHz Sensitivity" styleClass="configureDeckUnitButtons"/>
+					</HBox>	
+					<HBox fx:id="twelveKHzSensitivityHBox" styleClass="configurationPageHBoxes" >
+						<ComboBox fx:id="twelveKHzSensitivitybox" styleClass="configureDeckUnitComboBoxes">
+							<items>
+       							<FXCollections fx:factory="observableArrayList">
+      								<Double fx:value="-1.0" />
+      								<Double fx:value="-0.9" />
+      								<Double fx:value="-0.7" />
+      								<Double fx:value="-0.6" />
+      								<Double fx:value="-0.5" />
+      								<Double fx:value="-0.4" />
+      								<Double fx:value="-0.3" />
+      								<Double fx:value="-0.2" />
+      								<Double fx:value="-0.1" />
+      								<Double fx:value="0.0" />
+      								<Double fx:value="0.1" />
+      								<Double fx:value="0.2" />
+      								<Double fx:value="0.3" />
+      								<Double fx:value="0.4" />
+      								<Double fx:value="0.5" />
+      								<Double fx:value="0.6" />
+      								<Double fx:value="0.7" />
+      								<Double fx:value="0.8" />
+      								<Double fx:value="0.9" />
+      								<Double fx:value="1.0" />
+       							</FXCollections>
+     						</items>
+						</ComboBox>
+						<Button fx:id="set12KHzSensitivitybtn" text="Set 12.0 KHz Sensitivity" styleClass="configureDeckUnitButtons"/>
+					</HBox>		
+					<HBox fx:id="twelve_fiveKHzSensitivityHBox" styleClass="configurationPageHBoxes" >
+						<ComboBox fx:id="twelve_fiveKHzSensitivitybox" styleClass="configureDeckUnitComboBoxes">
+							<items>
+       							<FXCollections fx:factory="observableArrayList">
+      								<Double fx:value="-1.0" />
+      								<Double fx:value="-0.9" />
+      								<Double fx:value="-0.7" />
+      								<Double fx:value="-0.6" />
+      								<Double fx:value="-0.5" />
+      								<Double fx:value="-0.4" />
+      								<Double fx:value="-0.3" />
+      								<Double fx:value="-0.2" />
+      								<Double fx:value="-0.1" />
+      								<Double fx:value="0.0" />
+      								<Double fx:value="0.1" />
+      								<Double fx:value="0.2" />
+      								<Double fx:value="0.3" />
+      								<Double fx:value="0.4" />
+      								<Double fx:value="0.5" />
+      								<Double fx:value="0.6" />
+      								<Double fx:value="0.7" />
+      								<Double fx:value="0.8" />
+      								<Double fx:value="0.9" />
+      								<Double fx:value="1.0" />
+       							</FXCollections>
+     						</items>
+						</ComboBox>
+						<Button fx:id="set12_5KHzSensitivitybtn" text="Set 12.5 KHz Sensitivity" styleClass="configureDeckUnitButtons"/>
+					</HBox>	
+					<HBox fx:id="thirteenKHzSensitivityHBox" styleClass="configurationPageHBoxes" >
+						<ComboBox fx:id="thirteenKHzSesnitivitybox" styleClass="configureDeckUnitComboBoxes">
+							<items>
+       							<FXCollections fx:factory="observableArrayList">
+      								<Double fx:value="-1.0" />
+      								<Double fx:value="-0.9" />
+      								<Double fx:value="-0.7" />
+      								<Double fx:value="-0.6" />
+      								<Double fx:value="-0.5" />
+      								<Double fx:value="-0.4" />
+      								<Double fx:value="-0.3" />
+      								<Double fx:value="-0.2" />
+      								<Double fx:value="-0.1" />
+      								<Double fx:value="0.0" />
+      								<Double fx:value="0.1" />
+      								<Double fx:value="0.2" />
+      								<Double fx:value="0.3" />
+      								<Double fx:value="0.4" />
+      								<Double fx:value="0.5" />
+      								<Double fx:value="0.6" />
+      								<Double fx:value="0.7" />
+      								<Double fx:value="0.8" />
+      								<Double fx:value="0.9" />
+      								<Double fx:value="1.0" />
+       							</FXCollections>
+     						</items>
+						</ComboBox>
+						<Button fx:id="set13KHzSensitivitybtn" text="Set 13.0 KHz Sensitivity" styleClass="configureDeckUnitButtons"/>
+					</HBox>
+					<VBox fx:id="configureDeckUnitBottomButtonsVBox" >
+						<Button fx:id="clearDataLoggerbtn" text="Clear Data Logger" styleClass="configureDeckUnitBottomButtons" onAction="#clearDataLogger"/>
+						<Button fx:id="configureDeckBoxbtn" text="Configure Deck Box" styleClass="configureDeckUnitBottomButtons" onAction="#configureDeckBox"/>
+					</VBox>
+				</VBox>
+			</right>
+		</BorderPane>
+	</center>
+</BorderPane>
+
